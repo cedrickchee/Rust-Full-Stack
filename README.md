@@ -249,7 +249,7 @@ The most of the codes here is relevant to Rust. But, you can find the example co
 
 ## Contact
 
-Send messages with them if you need a immediate help.
+Send messages with them if you need an immediate help.
 
 1. [LinkedIn](https://www.linkedin.com/in/steady-learner-3151b7164/) 
 2. [Twitter](https://twitter.com/steadylearner_p)
