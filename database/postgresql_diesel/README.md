@@ -1,10 +1,10 @@
-# Start with data(a database) to build your app
+# Start with data to build your app
 
 [When you make a full stack Rust app, your workflow will be similar to this.](https://github.com/steadylearner/Rust-Full-Stack)
 
-1. Install Postgresql or another databases. 
+1. Install Postgresql or another database. 
 2. Test first with its CLI commands(psql). 
-3. Use ORM(Diesel etc) instead of them and integrate R2D2 for connection reuse.
+3. Use ORM(Diesel etc) instead of them. Then, include R2D2 for connection reuse.
 4. Make Rust web server with routes.
 5. Use a template engine such as Tera to show visual results. 
 6. Substitue it with Yew or another single page app if necessary.
