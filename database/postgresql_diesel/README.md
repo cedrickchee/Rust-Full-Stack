@@ -109,7 +109,7 @@ $diesel migraiton redo
 ---
 ```
 
-You can use **$cargo run --bin [filename] [argument]** to use the CLI for this example.
+Refer to **$cargo run --bin [filename] [argument]** to use the binary files used for this example.
 
 You can use **$history** for commands you used before.
 
