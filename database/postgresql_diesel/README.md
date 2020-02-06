@@ -7,7 +7,7 @@
 3. Use ORM(Diesel etc) instead of them. Then, include R2D2 for connection reuse.
 4. Make Rust web server with routes.
 5. Use a template engine such as Tera to show visual results. 
-6. Substitue it with Yew or another single page app if necessary.
+6. Substitute it with Yew or another single page app if necessary.
 
 ## Rust Diesel
 
@@ -42,7 +42,7 @@ $vim ~/.bashrc
 alias pgres="sudo -i -u postgres psql"
 alias createpostgresuser="sudo -u postgres createuser --interactive"
 
-$souce ~/.bashrc
+$source ~/.bashrc
 ```
 
 ## Use it with SQL commands

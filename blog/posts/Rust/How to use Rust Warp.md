@@ -318,19 +318,19 @@ We will refactor the example by using functions instead of the closure used ther
 ```console
 ├── Cargo.toml
 ├── src
-│   ├── api
-│   │   ├── hello.rs
-│   │   └── mod.rs
-│   ├── handlers
-│   │   ├── hello_handler.rs
-│   │   └── mod.rs
-│   ├── main.rs
-│   ├── routes
-│   │   ├── hello_route.rs
-│   │   └── mod.rs
-│   └── tests
-│       ├── hello_test.rs
-│       └── mod.rs
+│   ├── api
+│   │   ├── hello.rs
+│   │   └── mod.rs
+│   ├── handlers
+│   │   ├── hello_handler.rs
+│   │   └── mod.rs
+│   ├── main.rs
+│   ├── routes
+│   │   ├── hello_route.rs
+│   │   └── mod.rs
+│   └── tests
+│       ├── hello_test.rs
+│       └── mod.rs
 ```
 
 You can see that we will make various folders such as routes/, handlers/, api/, tests/ etc and files inside them.
@@ -339,21 +339,21 @@ You can see many **mod.rs** there. But, its contents will be very simple with **
 
 If you want more information about this, please refer to [How to modulize your Rust Frontend] or [Rust Yew frontend example](https://github.com/steadylearner/Rust-Full-Stack/tree/master/web/src).
 
-(Rust wants you to be specific with everything and exporting and importing the modules also. If you find its module system difficult, first search what represents them. It will be **mod.rs** in each folder and **main.rs** or **lib.rs** in top level directory of your Rust project. **crate** will represent main.rs or lib.rs and will work as if they are publisehd **crate** or **similar to package in JavaScript**. **self** will be used to use modules inside them instead of main.rs or lib.rs. You may want to use **crate** keyword but it won't because it already used inside **extern crate somecrate** syntax. So many texts, but I let this to help you but it will be better to learn it with examples.)
+(Rust wants you to be specific with everything and exporting and importing the modules also. If you find its module system difficult, first search what represents them. It will be **mod.rs** in each folder and **main.rs** or **lib.rs** in top level directory of your Rust project. **crate** will represent main.rs or lib.rs and will work as if they were publisehd **crate** or **similar to package in JavaScript**. **self** will be used to represent **main.rs** or **lib.rs itself** inside themselves and use modules imported in them. You may want to use **crate** keyword but it won't because it already used inside **extern crate somecrate** syntax. So many texts, but I let this to help you but it will be better to learn it with examples.)
 
 So without those mod.rs files, what we need will be just these.
 
 ```console
 ├── src
-│   ├── api
-│   │   ├── hello.rs
-│   ├── handlers
-│   │   ├── hello_handler.rs
-│   ├── main.rs
-│   ├── routes
-│   │   ├── hello_route.rs
-│   └── tests
-│       ├── hello_test.rs
+│   ├── api
+│   │   ├── hello.rs
+│   ├── handlers
+│   │   ├── hello_handler.rs
+│   ├── main.rs
+│   ├── routes
+│   │   ├── hello_route.rs
+│   └── tests
+│       ├── hello_test.rs
 ```
 
 We will first start with **main.rs**. It will help you to find the sturcture of the entire project better.
@@ -693,3 +693,4 @@ I really want to find where to spend my skills.
 **Without them, I wouldn't have written this blog post and made the examples.**
 
 (Rust will be used much more than before and have many opportunities this year. I want these blog posts could contribute to that.)
+
