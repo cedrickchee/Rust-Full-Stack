@@ -102,3 +102,8 @@ You can use **$cargo run --bin [filename] [argument]** to use the CLI for this e
 
 You can use **$history** for commands you used before.
 
+It is not easy to find the blog posts with "id" when there are many of them. Use this instead.
+
+```sql
+SELECT title,id FROM posts WHERE posts.title LIKE 'Title%';
+```
