@@ -1,4 +1,4 @@
-# Usage
+# Start with data(a database) to build your app
 
 [When you make a full stack Rust app, your workflow will be similar to this.](https://github.com/steadylearner/Rust-Full-Stack)
 
