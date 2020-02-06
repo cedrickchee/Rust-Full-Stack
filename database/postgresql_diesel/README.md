@@ -107,6 +107,7 @@ $diesel migraiton redo
 # ALTER USER user_name WITH PASSWORD 'new_password';
 # ALTER DATABASE name OWNER TO new_owner;
 ---
+```
 
 You can use **$cargo run --bin [filename] [argument]** to use the CLI for this example.
 
