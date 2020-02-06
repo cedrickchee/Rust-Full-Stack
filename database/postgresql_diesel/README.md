@@ -24,16 +24,21 @@
 
 ## Connect to Postgesql
 
-
 ```console
 // 1. Install Postgresql on Linux.
-$sudo apt update && $sudo apt install postgresql postgresql-contrib
 // 2. Login to psqL.
-$sudo -i -u postgres 
 // 3. Use it to connect to postgresql.
-$psql
 // 4. Create another user if you want.
+
+$sudo apt update && $sudo apt install postgresql postgresql-contrib
+$sudo -i -u postgres
+$psql
 $sudo -u postgres createuser --interactive
+
+// Save some of commands used here at **.bashrc**.
+
+$vim ~/.bashrc
+$souce ~/.bashrc
 ```
 
 ## Use it with SQL commands
@@ -43,21 +48,19 @@ You have to almost always use ; at the end you use it.
 ```sql
 CREATE USER owner1 WITH PASSWORD 'password1';
 ALTER USER my_user_name WITH PASSWORD 'my_secure_password';
-CREATE DATABASE demo_db1 OWNER owner1; 
+CREATE DATABASE demo_db1 OWNER owner1;
 ```
 
 Refer to these commands from psql console.
 
-```md
-**\h** to show SQL 
+**\h** to show SQL
 **\?** for psql commands
-**\password**
-**\du** to list user 
+**\password** to edit password
+**\du** to list user
 **\l** to show databases
 **\c db_name;** to connect to db_name made by the ORM or You
-```
 
-You can use Diesel at this point. But, you can also test it manually.
+You can use Diesel at this point. But, you can also test it manually and use them to debug.
 
 ```console
 CREATE TABLE demo_t(something int); // make table, CREATE TABLE demo_c(anychar char);
@@ -67,23 +70,23 @@ DROP DATABASE demo_t // drop database
 \l // show database lists
 SELECT * from demo_t;
 \q
-$DROP DATABASE IF EXISTS db_name; 
+$DROP DATABASE IF EXISTS db_name;
 ```
- 
+
 ## Setup Diesel with Cargo
 
 ```console
 // I had a problem using Cargo with "linking with cc failed exit code 1"
-// and could solve it with this comamnd. 
+// and could solve it with this comamnd.
 $sudo apt install libpq-dev libmysqlclient-dev
- 
+
 $cargo install diesel_cli --no-default-features --features postgres or $cargo install diesel_cli
-$cargo doc -p diesel --open 
+$cargo doc -p diesel --open
 
 // 1. Set up Diesl in your project.
-// 2. Create migration "create_posts" 
-// 3. Write SQL for migration 
-// 4. Run it 
+// 2. Create migration "create_posts".
+// 3. Write SQL for migration.
+// 4. Run it.
 // 5. Redo if you want after you edit SQL you made before.
 
 $diesel setup
