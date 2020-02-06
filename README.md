@@ -208,7 +208,7 @@ You can **like** and share it with others if you want more contents similar to t
 
 ## Selenium
 
-1. [How to use Rust thirtyfour crate for Selenium to scrap React app](https://github.com/steadylearner/Rust-Full-Stack/tree/master/Selenium)
+1. [How to use Rust thirtyfour to scrap React app](https://github.com/steadylearner/Rust-Full-Stack/tree/master/Selenium)
 
 ## Blog
 
