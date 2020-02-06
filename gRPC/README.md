@@ -107,8 +107,6 @@ The purpose of it is to help you to have the working Rust Tonic code and start y
 
 If you want the result first, visit [Tonic CRUD Example by Steadylearner] set up database with **user.sql** in it and use **$cargo run --release** to start the project in your machine.
 
-[You can also read this at Steadylearner](https://www.steadylearner.com/blog/read/How-to-use-gRPC-with-Rust-Tonic-and-Postgresql-database)
-
 <br />
 
 <h2 class="red-white">[Prerequisite]</h2>
@@ -124,34 +122,41 @@ If you haven't installed Rust in your machine, read [How to install Rust]. We wi
 
 I will assume that you are already familiar with gRPC, Rust and Postgresql or other databases. Otherwise, please read the documentations for them thoroughly before you read on.
 
-You may not need [gRPC Client] at this point to start with. But, I let it here before other contents because it is very useful and it takes very long time to install it. [Follow the instruction](https://github.com/uw-labs/bloomrpc#installation) first and then move on to save your time later.
+You may not need [gRPC Client] at this point. But, I let it here before other contents because it is very useful and it takes long time to install it. [Follow the instruction](https://github.com/uw-labs/bloomrpc#installation) first to save your time later.
 
 <br />
 
 <h2 class="blue">Table of Contents</h2>
 
 1. Project Setup
-2. Define the CRUD gRPC service for user data
+2. Define the CRUD gRPC service
 3. Prepare Cargo.toml to install dependencies
 4. Make gRPC server with Tonic
-5. Implement gRPC Crud Service with Rust Postgresl
+5. Implement gRPC Crud Service with Rust Postgresql
 6. Use gRPC client to test it
 7. Conclusion
 
 ---
 
-I refered and reused some parts of [Official Tonic Guide] to make the working flow of this post be similar to it and help you find this project better.
+I refered and reused some parts of [Official Tonic Guide] to make the working flow of this post be similar to it. This will help you find the blog post better.
 
 <br />
 
 ## 1. Project Setup
 
-We will first set up data before all others. I hope you already have any sql database installed in your machine. Refer to this sql file.
+We will first set up data before all others. I hope you already have any sql database installed in your machine. [Refer to this sql commands](https://www.linode.com/docs/databases/postgresql/how-to-back-up-your-postgresql-database/).
+
+Create database for whatever name you want.
 
 ```sql
 CREATE DATABASE grpc OWNER you;
 \c grpc;
+```
 
+Then, **$psql users < users.sql** or manually paste them to your psql console after you login to it.
+
+```sql
+-- users.sql
 CREATE TABLE users(
   id VARCHAR(255) PRIMARY KEY,
   first_name VARCHAR(255) NOT NULL,
@@ -167,11 +172,13 @@ INSERT INTO users VALUES
     ('mybirthdayisnotblackfriday', 'mybirthdayis', 'notblackfriday', '2019-11-26');
 ```
 
-Then, create a new Rust project to use the data and learn how to use [Tonic].
+You can save those data from Postgresql with **$pg_dump users > users.sql** later.
 
-```shell
-$ cargo new user
-$ cd user
+The database setup is ready. Create a new Rust project to use the data and learn how to use [Tonic].
+
+```console
+$cargo new user
+$cd user
 ```
 
 Make .env file first in the folder to proetct your database login information. Refer to this command.
@@ -182,25 +189,25 @@ $echo DATABASE_URL=postgres://postgres:postgres@localhost/grpc > .env
 
 <br />
 
-## 2. Define the CRUD gRPC service for user data
+## 2. Define the CRUD gRPC service
 
-We prepared minimal set up for this blog post in the previous part. We will define the gRPC **service** and the method **request** and **response** types using [protocol buffers] for the user data we made before with Postgresql.
+We prepared minimal set up for this blog post in the previous part. We will define the gRPC **service** with the method **request** and **response** types. We will use [protocol buffers] for the user data we made before with Postgresql.
 
-We will make `.proto` files in **proto** folder. Use this command.
+We will make `.proto` files in **proto** folder. Use this commands.
 
-```shell
-$ mkdir proto
-$ touch proto/user.proto
+```console
+$mkdir proto
+$touch proto/user.proto
 ```
 
-Then, first we will define our package name, which is what Tonic looks for when including your protos in the client and server applications. It will be **user**.
+Then, first we will define our package name, which is what Tonic uses when including your protos in the client and server applications. It will be **user**.
 
 ```proto
 syntax = "proto3";
 package user;
 ```
 
-Then, we wil define our Crud service. This service will contain the actual RPC calls we will be using for the Rust Tonic CRUD example with Postgresql database.
+Then, we wil define our Crud service. This service will contain the actual RPC calls. We will use them for the Rust Tonic CRUD example.
 
 ```proto
 service Crud { // Use whatever name you want, this is for blog posts and not prouction files.
@@ -213,7 +220,9 @@ service Crud { // Use whatever name you want, this is for blog posts and not pro
 }
 ```
 
-Nothing complicated here. It is a little bit verbose. But, It is to make them more explict and easily write separate logics for them later. If you have better options for them or expertise of gRPC, please contact me with [Twitter] or make a github issue for this post etc.
+Nothing complicated here. It is a little bit verbose. But, It is to make them more explict and easily write separate logics for them later. 
+
+If you have better options for them or expertise of gRPC, please contact me with [Twitter] or make a github issue for this post etc.
 
 Finally, we will make those types we used above in our **Crud** RPC method. RPC types are defined as messages which contain typed fields. They will be similar to this.
 
@@ -261,7 +270,7 @@ message Users {
 }
 ```
 
-You can see that I used **string** type for **date_of_birth**. I used that because I couldn't find the example to correctly type **DATE** and work with [Tonic], [protocol buffers] and Rust type system.
+You can see that I used **string** type for **date_of_birth** instead of **date**. I used that because I couldn't find the example to correctly type **DATE** in protobuf and make it also work with [Tonic], [protocol buffers] and Rust type system.
 
 If you are an expert with this and have a better way, please help with this.
 
@@ -328,15 +337,15 @@ message Users {
 Finding working Rust code is not easy and becomes even harder when you want to satisfy Rust compiler, [protocol buffers] type specification, [Rust Postgresql] at the same time.
 
 If you want to make your own Rust Tonic project with other proto files later, compile
-[Tonic CRUD Example by Steadylearner] first to collect binary files and then start by editing small parts of the Rust code in there.
+[Tonic CRUD Example by Steadylearner] first to collect binary files and then start by editing small parts of the Rust code and protobuf definitions in there.
 
 <br />
 
 ## 3. Prepare Cargo.toml to install dependencies
 
-We set up the proejct and made the protobuf file for our Rust CRUD project with database. We can start writing our Rust code with Tonic.
+We set up the proejct and made the protobuf file to use gRPC with Rust. Therefore, we can write Rust code for it with Tonic.
 
-We will first prepare dependencies with `Cargo.toml`.
+We will first prepare the dependencies for them with `Cargo.toml`.
 
 ```toml
 [package]
@@ -371,7 +380,7 @@ uuid = { version = "0.8.1", features = ["serde", "v4"] }
 tonic-build = "0.1.0-alpha.4"
 ```
 
-You may think that there are many dependencies for this simple project. But, it will be easy if you think this part
+There are many dependencies for this simple project. But, it will be easy if you think this part
 
 ```toml
 # Database(Postgresql)
@@ -381,11 +390,11 @@ chrono = "0.4.9"
 uuid = { version = "0.8.1", features = ["serde", "v4"] }
 ```
 
-is for the [Rust Postgresql] to work and others are for [Tonic].
+is for the [Rust Postgresql] and others are for [Tonic].
 
-We include `tonic-build` as a useful way to incorporate the generation of our client and server gRPC code.
+We include `tonic-build` to make our client and server side gRPC code.
 
-If you haven't used gRPC or tonic it may confuse you and find it difficult. But, every languages that use gRPC integration have the similar process to use proto buffer definitions with them.
+If you haven't used gRPC or tonic it may confuse you. But, every languages that use gRPC integration have the similar process to use proto buffer definitions with them.
 
 With Rust Tonic, we need to include it in build process of our application. We will setup this with **build.rs** at the root of your crate.
 
@@ -396,9 +405,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-Nothing complicated here. You just needed to modify the file name from other examples. This makes **tonic-build** to compile your **protobufs** files to work with your Rust gRPC projects.
+Nothing complicated here. You just need to modify the file name from other examples. This makes **tonic-build** to compile your **protobufs** files to work with your Rust gRPC projects.
 
-It automatically build some Rust moudles you can use later with your Rust code depending on the definitions you used in your protobuf files. You can verfiy this with the Rust code you will read later.
+It automatically build some Rust moudles you can use later with your Rust code depending on the protobuf definitions you used in your protobuf files. You can verfiy this with the Rust code you will read later.
 
 If you want more details, please refer to [tonic-build].
 
@@ -452,13 +461,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-It will be the entry point when we want to start our Rust Crud gRPC server. [Most of them are to define dependencies, modules you will use][How to modulize your Rust Frontend] and start Tonic gRPC server.
+It will be the entry point when we start our Rust Tonic gRPC server. [Most of them are to define dependencies, modules you will use][How to modulize your Rust Frontend].
 
 The file is simple but there are some points you need to know.
 
 **1.** This is where you can use auto generated codes from **tonic_build::compile_protos("proto/user.proto")?;** and **tonic-build = "0.1.0-alpha.4"**.
 
-You can use modules made from it similar to this in this file and handlers we will build with **models.rs**.
+You can use modules made from it similar to this and handlers we will build with **models.rs**.
 
 ```rust
 use user::{
@@ -484,7 +493,7 @@ For it can be reused many times without modifications, we will separate this to 
 
 **3.** This is code from the [Tonic] authors. You should use it without http prefix when you use CURL and [gRPC client].
 
-**4.** We use **console::Style;** with println! to easily visit the server with browsers.
+**4.** We use **console::Style;** with println! to easily visit the server with browsers and send CURL commands with it.
 
 <br />
 
@@ -492,7 +501,7 @@ For it can be reused many times without modifications, we will separate this to 
 
 In this part, we will make some handlers in **service.rs** while we follow the definitions we made in **user.proto** file. The entire code will be similar to this.
 
-The code snippet is long to implement every gRPC CRUD operation with Postgresql database relevant logics. You may read only parts that you want to implement.
+The code snippet is long. This is to implement every gRPC CRUD operation with Postgresql database relevant logics. You may read only parts you want.
 
 ```rust
 use chrono::*;
@@ -702,9 +711,7 @@ impl Crud for User {
 }
 ```
 
-There were many Rust codes here. It may be complicated to start with. So I want you to start your project while you refer to only **get_user** and **list_users** parts first.
-
-But a little help will be useful before that.
+There were many Rust codes here. So it may be complicated to start with. I want you to test your project with **get_user** and **list_users** parts first. Then, you can improve it while you refer to these separate comments.
 
 **1.** When you read [Rust Postgresql] documentation and examples, you can see that there are [execute][Rust Postgresql execute] and [query][Rust Postgresql query] API to use Postgresql SQL commands. The difference is that execute retunrs **the number of rows modified** query returns data(returning the resulting rows"). You should find when to use them depending on your needs.
 
@@ -753,15 +760,13 @@ uuid = { version = "0.8.1", features = ["serde", "v4"] }
 
 **6.** We use **let number_of_rows_affected = &conn.execute** and its relevant logic to handle the database result from the gRPC client request. You can see that the similar logic is used in **update_user**, **delete_user**, **delete_users**.
 
-I hope you read the entire code of the project well and its relevant documentations. If you haven't tested your project, you may run your CRUD gRPC user server with **cargo run --release** and see the result similar to this.
-
-If you made it work, you should see message similar to this.
+I hope you read the entire code of the project and its relevant documentations. If you haven't tested the project, do it with **cargo run --release** and see the result similar to this.
 
 ```console
 Rust gRPC Server ready at [::1]:50051
 ```
 
-and you can test it with CURL with this **$curl [::1]:50051**.
+Then, you can test it with CURL with **$curl [::1]:50051**.
 
 If it worked well, it should show this.
 
@@ -771,7 +776,7 @@ Warning: curl to output it to your terminal anyway, or consider "--output
 Warning: <FILE>" to save to a file.
 ```
 
-I hope it worked all well, at this point you can write [Tonic] gRPC client code similar to this.
+Then, you can write [Tonic] gRPC client code similar to this.
 
 ```rust
 pub mod user {
@@ -785,7 +790,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut client = CrudClient::connect("http://[::1]:50051")?;
 
     let request = tonic::Request::new(UserRequest {
-        // id: "It works!".into(),
         id: "steadylearner".into(),
     });
 
@@ -799,7 +803,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-You wouldn't need explanations for it if you read [Official Tonic Guide]. Make it compile if you want and back to improve it later when you test all the gRPC end points with [gRPC Client].
+It will be easy to find how this works if you read [Official Tonic Guide] already. Make it compile if you want and back to improve it later after you test all the gRPC end points with [gRPC Client].
 
 <br />
 
@@ -825,25 +829,31 @@ Use **pwd** to find the location of the gRPC client and **$vim ~/.bashrc** to in
 alias grpc-client="grpc/bloomrpc/release/'BloomRPC version.AppImage'"
 ```
 
+and use this command.
+
+```console
+$source ~/.bashrc
+```
+
 Then, you can use it with **$grpc-client** whenever you want.
 
 It will show the desktop application similar to this from the official repository.
 
 [![BloomRPC Usage Example from the official repository](https://raw.githubusercontent.com/uw-labs/bloomrpc/master/resources/editor-preview.gif)][gRPC Client]
 
-If you used graphql before, you will find it is very similar to use graphiql to test its end points.
+If you used graphql before, you will find it is very similar to use [graphiql] to test its end points.
 
-You will need to include your proto files first. For example, user.proto we made here.
+You will need to include your proto files first. For example, **user.proto** we made.
 
-Then, it will automatically show you the methods you can use.
+Then, it will automatically show the methods you can use.
 
-When you click each maehtods, it will give the default value at the editor part. You can send requests with them or use your custom values.
+When you click each methods, it will give the default value at the editor part. You can send requests with them or use your custom values.
 
-For this example, you should have cautions when you define value for **"date_of_birth"** part. You should use correct Date type string.
+For this example, you should have cautions when you define value for **"date_of_birth"** part. You should use correct **DATE** type string for Rust and Postgresql.
 
 When the programm pauses, you can stop it easily by clicking the same button you used to send gRPC request.
 
-Refer to the request examples I let it here if you want to test it with the same data we used for this project.
+Refer to the request examples I let it here before you use it.
 
 ### GetUser
 
@@ -894,8 +904,7 @@ Refer to the request examples I let it here if you want to test it with the same
 {}
 ```
 
-Test the gRPC end points while you refer them. Then, write more complicated Rust [Tonic] client codes in separate Rust files.
-
+Then, test the gRPC server end points with your own code. Then, write more complicated Rust [Tonic] client in separate Rust files. 
 You can also include those codes in other Rust servers to make micro services.
 
 <br />
@@ -904,15 +913,15 @@ You can also include those codes in other Rust servers to make micro services.
 
 I hope you made it work. What left will be mostly to edit protobuf defintion and write more Rust codes to handle database relevant logics.
 
-I like Rust and [Tonic] and they helped me to learn and write better gRPC codes easily. But, it was difficult to find the working examples with database integration and want this post be helpful for others.
+Rust and [Tonic] and they helped me to learn and write better gRPC codes. But, it was difficult to find the working examples with database integration and want this post be helpful for others.
 
 The project will be used with more [Rust blog posts].
 
-For example, we will learn how to write Actix CRUD JSON Web service and work with the project from this post, containerize them with Docker, How to deploy those Rust micro services to AWS etc.
+For example, we will learn how to containerize them with Docker, make it work with Actix server and upload them to AWS etc.
 
 If you want the latest contents from Steadylearner, follow me at [Twitter] or star [Rust Full Stack].
 
 Do you need **a Full Stack Rust Developer**? Contact me with [LinkedIn] or [Twitter] and I will help you.
 
-Most of time, I have spent the time with web development. But you can invite me to work with other techonologies. I can learn fast if there is a reason for that.
+You can invite me to work with your team. I can learn fast if there is a reason for that.
 

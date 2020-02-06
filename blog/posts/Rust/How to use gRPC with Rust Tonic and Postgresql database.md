@@ -122,7 +122,7 @@ If you haven't installed Rust in your machine, read [How to install Rust]. We wi
 
 I will assume that you are already familiar with gRPC, Rust and Postgresql or other databases. Otherwise, please read the documentations for them thoroughly before you read on.
 
-You may not need [gRPC Client] at this point. But, I let it here before other contents because it is very useful and it takes very long time to install it. [Follow the instruction](https://github.com/uw-labs/bloomrpc#installation) first to save your time later.
+You may not need [gRPC Client] at this point. But, I let it here before other contents because it is very useful and it takes long time to install it. [Follow the instruction](https://github.com/uw-labs/bloomrpc#installation) first to save your time later.
 
 <br />
 
@@ -132,13 +132,13 @@ You may not need [gRPC Client] at this point. But, I let it here before other co
 2. Define the CRUD gRPC service
 3. Prepare Cargo.toml to install dependencies
 4. Make gRPC server with Tonic
-5. Implement gRPC Crud Service with Rust Postgresl
+5. Implement gRPC Crud Service with Rust Postgresql
 6. Use gRPC client to test it
 7. Conclusion
 
 ---
 
-I refered and reused some parts of [Official Tonic Guide] to make the working flow of this post be similar to it and help you find this project better.
+I refered and reused some parts of [Official Tonic Guide] to make the working flow of this post be similar to it. This will help you find the blog post better.
 
 <br />
 

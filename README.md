@@ -1,3 +1,5 @@
+<!-- Find blog posts with SELECT title,id FROM posts WHERE posts.title LIKE 'Title%'; -->
+
 <!-- Link -->
 
 [Steadylearner]: https://www.steadylearner.com
