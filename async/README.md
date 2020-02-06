@@ -7,5 +7,3 @@
 5. [Rust async book](https://rust-lang.github.io/async-book/01_getting_started/01_chapter.html), [tokio](https://tokio.rs/), [async-std](https://docs.rs/async-std/1.4.0/async_std/)
 6. [epoll](http://man7.org/linux/man-pages/man7/epoll.7.html)
 7. [futures crate documentation](https://docs.rs/futures/0.3.1/futures/future/struct.AndThen.html) and [future by example](https://docs.rs/future-by-example/0.1.0/future_by_example/)
-8. [Future thoughts on async await](https://medium.com/@polyglot_factotum/further-thoughts-on-async-await-7767f924cb7e) 
-

@@ -904,8 +904,9 @@ Refer to the request examples I let it here before you use it.
 {}
 ```
 
-Then, test the gRPC server end points with your own code. Then, write more complicated Rust [Tonic] client in separate Rust files. 
-You can also include those codes in other Rust servers to make micro services.
+Test the gRPC server end points with your own code. Then, write more complicated Rust [Tonic] client in separate Rust files. 
+
+[You can also use it with other Rust servers to make microservices](https://github.com/steadylearner/Rust-Full-Stack/tree/master/microservices_with_docker).
 
 <br />
 
@@ -913,7 +914,7 @@ You can also include those codes in other Rust servers to make micro services.
 
 I hope you made it work. What left will be mostly to edit protobuf defintion and write more Rust codes to handle database relevant logics.
 
-Rust and [Tonic] and they helped me to learn and write better gRPC codes. But, it was difficult to find the working examples with database integration and want this post be helpful for others.
+Rust and [Tonic] helped me to learn and write better gRPC codes. But, it was difficult to find the working examples with database integration and want this post be helpful for others.
 
 The project will be used with more [Rust blog posts].
 
