@@ -99,7 +99,7 @@ Test codes here or read [the Rust blog posts at Steadylearner][Steadylearner Rus
 
 [If you need a developer who can deploy web projects with Docker and AWS, please contact me](https://www.linkedin.com/in/steady-learner-3151b7164/). I can work with **Rust**, **JavaScript**, **Python**, **Docker**, **AWS** etc.
 
-**I really want to use the skills used here, please someone give me an opportunity to help your company.**
+**I really want to use the Rust skills used here, give me an opportunity to work with you.**
 
 [![Rust full stack chat app](https://www.steadylearner.com/static/images/post/web/full-stack-rust-chat-app-by-steadylearner.png)](https://www.steadylearner.com/blog/read/Fullstack-Rust-with-Yew)
 
@@ -107,16 +107,15 @@ Test codes here or read [the Rust blog posts at Steadylearner][Steadylearner Rus
 
 1. Rust is fast and strongly typed language with many benefits. 
 2. But, it takes long time to compile. You can't be sure your code will satisfy the compiler or not.
-3. So use the examples here as your starting points.
-4. There are many Rust web development relevant examples here. Find what you want.
+3. Therefore, use the examples here as your starting points.
 
 **Everything is simple with examples but it is not easy to make them with Rust.**
 
-The auhtor likes to challenge with a new technology and share code, but, currently spend less time with Rust to get a developer job. 
-
 You can make an issue if you want him to spend time to make more examples to help other Rust developers.
 
-**You can invite the author to work with you so that he can work with better development environment.** 
+I like to challenge with a new technology and share code, but, currently spend less time with Rust to get a developer job. 
+
+**You can invite me to work with you so that he can work with better conditio to help Rust developer community.** 
 
 You can also help him to have better equipment and better internet connection with [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HLNVQJ2L2YYZU).
 
@@ -256,20 +255,14 @@ Send messages with them if you need an immediate help.
 
 ## How to contribute
 
-This is a personal repository. But, it is getting a little bit more attentions recently and maybe become an open source someday. 
-
-So, contirbution is welcome. 
-
-There is no versioning here because I upload only projects working and reusable enough.
+This is a personal repository. But, it is getting a little bit more attentions recently. It maybe become an open source someday. So, contirbution is welcome. 
 
 I am not a native speaker so there will be grammatical or type errors. You can help me to correct them. 
 
 **You can suggest your code instead of deprecated ones, imporve existing codes or ask the author to include your projects.**
 
-**You can also invite the author to work with you or your company.** 
+There is no versioning here because I upload only projects working and reusable enough.
 
 ## The current state of this repository
-
-The auhtor will spend time with Golang while writing blog posts about Rust also.
 
 The Rust examples for libp2p and cryptocurrency would be included if the author have a reason to spend time for them.
