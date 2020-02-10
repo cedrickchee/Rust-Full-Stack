@@ -266,4 +266,4 @@ There is no versioning here because I upload only projects working and reusable 
 
 ## The current state of this repository
 
-The Rust examples for libp2p and cryptocurrency would be included if the author have a reason to spend time for them.
+The author decided to spend his time with crypto, p2p and other low level programming with Golang and Rust.
