@@ -6,6 +6,3 @@
 * [p2p network guide](https://bitcoin.org/en/p2p-network-guide#peer-discovery)
 * [What is a thin client](https://bitcoin.stackexchange.com/questions/32529/what-is-a-thin-client)
 
-# Golang
-
-* [Blockchain Go code](https://github.com/Jeiwan/blockchain_go), [Blog posts](https://jeiwan.net/)
