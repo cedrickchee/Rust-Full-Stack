@@ -271,9 +271,9 @@ The author decided to spend his time with crypto, p2p and other low level progra
 
 ## Warning
 
-I do what I want here. 
+**I do what I want here.** Most of the proejcts here are throwaway code but somehow become useful when they are grouped.
 
 1. **This is a personal repository.** 
-2. **Don't treat this as public.**
+2. **Don't treat this public.**
 
-Could you find errors? Feel happy that you are a decent coder and live on or commit here to help others.
+Could you find errors? Code on with your own work or commit here to help others.
