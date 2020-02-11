@@ -274,6 +274,6 @@ The author decided to spend his time with crypto, p2p and other low level progra
 **I do what I want here.** Most of the proejcts here are throwaway code but somehow become useful when they are grouped.
 
 1. **This is a personal repository.** 
-2. **Don't treat this public.**
+2. **Don't treat this public before you seriously speak with the author about that.**
 
 Could you find errors? Code on with your own work or commit here to help others.
