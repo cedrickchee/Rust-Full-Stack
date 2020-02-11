@@ -15,9 +15,12 @@ type Block struct {
 	Hash          []byte
 }
 
+// https://www.dotnetperls.com/bytes-go
+// Does [] simply mean array and {} map?
+
 // SetHash calculates and sets block hash
 func (b *Block) SetHash() {
-	timestamp := []byte(strconv.FormatInt(b.Timestamp, 10))
+	timestamp := []byte(strconv.FormatInt(b.Timestamp, 10)) // byte slice
 	headers := bytes.Join([][]byte{b.PrevBlockHash, b.Data, timestamp}, []byte{})
 	hash := sha256.Sum256(headers)
 
