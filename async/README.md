@@ -7,3 +7,4 @@
 5. [Rust async book](https://rust-lang.github.io/async-book/01_getting_started/01_chapter.html), [tokio](https://tokio.rs/), [async-std](https://docs.rs/async-std/1.4.0/async_std/)
 6. [futures crate documentation](https://docs.rs/futures/0.3.1/futures/future/struct.AndThen.html) and [future by example](https://docs.rs/future-by-example/0.1.0/future_by_example/)
 7. [embed-async-await](https://ferrous-systems.com/blog/embedded-async-await/)
+8. [a primer to async Rust](https://omarabid.com/async-rust)
