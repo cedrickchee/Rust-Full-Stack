@@ -99,8 +99,6 @@ Test codes here or read [the Rust blog posts at Steadylearner][Steadylearner Rus
 
 [If you need a developer who can deploy web projects with Docker and AWS, please contact me](https://www.linkedin.com/in/steady-learner-3151b7164/). I can work with **Rust**, **JavaScript**, **Python**, **Docker**, **AWS** etc.
 
-**I really want to use the Rust skills used here, give me an opportunity to work with you.**
-
 [![Rust full stack chat app](https://www.steadylearner.com/static/images/post/web/full-stack-rust-chat-app-by-steadylearner.png)](https://www.steadylearner.com/blog/read/Fullstack-Rust-with-Yew)
 
 ## The reason to use this repository
@@ -113,11 +111,9 @@ Test codes here or read [the Rust blog posts at Steadylearner][Steadylearner Rus
 
 You can make an issue if you want him to spend time to make more examples to help other Rust developers.
 
-I like to challenge with a new technology and share code, but, currently spend less time with Rust to get a developer job. 
+I like to challenge with a new technology and share code.
 
-**You can invite me to work with you so that he can work with better conditio to help Rust developer community.** 
-
-You can also help him to have better equipment and better internet connection with [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HLNVQJ2L2YYZU).
+You can also help me to have better equipment and better internet connection with [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HLNVQJ2L2YYZU).
 
 ## Start
 
@@ -263,8 +259,6 @@ Send messages with them if you need an immediate help.
 
 ## How to contribute
 
-**This is a personal repository.** I do what I want here.
-
 I am not a native speaker so there will be grammatical or type errors. You can help me to correct them. 
 
 **You can suggest your code instead of deprecated ones, imporve existing codes or ask the author to include your projects.**
@@ -274,3 +268,12 @@ There is no versioning here because I upload only projects working and reusable 
 ## The current state of this repository
 
 The author decided to spend his time with crypto, p2p and other low level programming with Golang and Rust.
+
+## Warning
+
+I do what I want here. 
+
+1. **This is a personal repository.** 
+2. **Don't treat this as public.**
+
+Could you find errors? Feel happy that you are a decent coder and live on or commit here to help others.
