@@ -263,7 +263,7 @@ Send messages with them if you need an immediate help.
 
 ## How to contribute
 
-This is a personal repository. But, it is getting a little bit more attentions recently. It maybe become an open source someday. So, contirbution is welcome. 
+**This is a personal repository.** I do what I want here.
 
 I am not a native speaker so there will be grammatical or type errors. You can help me to correct them. 
 
