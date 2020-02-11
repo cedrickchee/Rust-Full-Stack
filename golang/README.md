@@ -12,6 +12,8 @@
 
 6.[Goworker](https://github.com/benmanns/goworker)
 
+7.[Useful simple Golang code](https://www.dotnetperls.com/)
+
 ## Read
 
 * [Seven stages of becoming a Golang programmer](https://opensource.com/article/17/9/seven-stages-becoming-go-programmer)

@@ -1,3 +1,4 @@
+// $go fmt *.go
 // $go run *.go
 // $go run main.go block.go blockchain.go
 
