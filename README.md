@@ -213,7 +213,6 @@ You can **like** and share it with others if you want more contents similar to t
 
 1. [Python Blog with posts saved at GitHub](https://github.com/steadylearner/Rust-Full-Stack/tree/master/blog)
 2. [Visit Steadylearner](https://www.steadylearner.com/blog) or [read blog posts at GitHub](https://github.com/steadylearner/Rust-Full-Stack/tree/master/blog/posts)
-3. [Blog with Rust Yew Frontend](https://github.com/ahmad2smile/portfolio)
 
 No need for a database because the posts are saved at GitHub. Others can also easily contribute to blog posts with its features.
 
@@ -246,6 +245,14 @@ The most of the codes here is relevant to Rust. But, you can find the example co
 6. How to modulize your Rust project
 7. How to deploy it
 8. How to write sitemaps and metatags for it
+
+## Interesting Projects
+
+This is where I save the projects that I thought interesting.
+
+* [envconfig-rs](https://github.com/greyblake/envconfig-rs)
+* [Redelete](https://github.com/ardeaf/redelete)
+* [Blog with Rust Yew Frontend](https://github.com/ahmad2smile/portfolio)
 
 ## Contact
 
