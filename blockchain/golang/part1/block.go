@@ -16,25 +16,24 @@ type Block struct {
 }
 
 // https://www.dotnetperls.com/bytes-go
-// Does [] simply mean array and {} map?
 
 // SetHash calculates and sets block hash
-func (b *Block) SetHash() {
+func (b *Block) SetHash() { // method
 	timestamp := []byte(strconv.FormatInt(b.Timestamp, 10)) // byte slice
-	headers := bytes.Join([][]byte{b.PrevBlockHash, b.Data, timestamp}, []byte{})
-	hash := sha256.Sum256(headers)
+	headers := bytes.Join([][]byte{b.PrevBlockHash, b.Data, timestamp}, []byte{}) // Join byte slices with empty byte slice("")
+	hash := sha256.Sum256(headers) // search Sum256
 
-	b.Hash = hash[:]
+	b.Hash = hash[:] // copy the hash?
 }
 
 // NewBlock creates and returns Block
-func NewBlock(data string, prevBlockHash []byte) *Block {
-	block := &Block{time.Now().Unix(), []byte(data), prevBlockHash, []byte{}}
+func NewBlock(data string, prevBlockHash []byte) *Block { // init
+	block := &Block{time.Now().Unix(), []byte(data), prevBlockHash, []byte{}} // empty byte slice
 	block.SetHash()
 	return block
 }
 
 // NewGenesisBlock creates and returns genesis Block
-func NewGenesisBlock() *Block {
+func NewGenesisBlock() *Block { // init
 	return NewBlock("Genesis Block", []byte{})
 }
