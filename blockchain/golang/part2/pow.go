@@ -70,7 +70,8 @@ func (pow *ProofOfWork) Run() (int, []byte) {
 	return nonce, hash[:]
 }
 
-// Validate validates block's PoW
+// Validate validates pow
+// https://golang.org/pkg/math/big/#Int.Cmp
 func (pow *ProofOfWork) Validate() bool {
 	var hashInt big.Int
 
