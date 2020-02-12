@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	bolt "github.com/boltdb/bbolt"
+	bolt "go.etcd.io/bbolt"
 )
 
 const dbFile = "blockchain.db"
@@ -26,11 +26,12 @@ type BlockchainIterator struct {
 func (bc *Blockchain) AddBlock(data string) {
 	var lastHash []byte
 
-	err := bc.db.View(func(tx *bolt.Tx) error {
+	// Closure here, tx means transaction here
+	err := bc.db.View(func(tx *bolt.Tx) error { // revert with error
 		b := tx.Bucket([]byte(blocksBucket))
 		lastHash = b.Get([]byte("l"))
 
-		return nil
+		return nil // Submit transtation
 	})
 
 	if err != nil {

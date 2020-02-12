@@ -16,7 +16,8 @@ type Block struct {
 	Nonce         int
 }
 
-// Serialize serializes the block
+// Serialize serializes the block to []byte
+// to save it to bbolt
 func (b *Block) Serialize() []byte {
 	var result bytes.Buffer
 	encoder := gob.NewEncoder(&result)
@@ -47,6 +48,7 @@ func NewGenesisBlock() *Block {
 }
 
 // DeserializeBlock deserializes a block
+// to use the data from bbolt
 func DeserializeBlock(d []byte) *Block {
 	var block Block
 
