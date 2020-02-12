@@ -4,7 +4,8 @@ import subprocess as cmd
 cp = cmd.run("git add .", check=True, shell=True)
 
 response = input("Do you want to use the default message for this commit?([y]/n)\n")
-message = "update the repository"
+# message = "update the repository"
+meesage = "Play with Golang."
 
 if response.startswith('n'):
     message = input("What message you want?\n")
