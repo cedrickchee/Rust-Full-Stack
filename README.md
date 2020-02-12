@@ -276,8 +276,4 @@ The author decided to spend his time with crypto, p2p and other low level progra
 1. **This is a personal repository.** 
 2. **Don't treat this public before you seriously speak with the author about that.**
 
-Could you find errors? You are better programmers with fast machines and internet. 
-
-Code on or commit here to help others. 
-
-["One last thing to note. Proof-of-Work algorithms must meet a requirement: doing the work is hard, but verifying the proof is easy. A proof is usually handed to someone else, so for them, it shouldn’t take much time to verify it."](https://jeiwan.net/posts/building-blockchain-in-go-part-2/)
+Could you find errors? You are better programmers with fast machines and internet. Commit here to help others or code on. 
