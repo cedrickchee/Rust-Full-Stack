@@ -17,11 +17,16 @@
 ## Read
 
 * [Seven stages of becoming a Golang programmer](https://opensource.com/article/17/9/seven-stages-becoming-go-programmer)
-* [The behavior of channles](https://www.ardanlabs.com/blog/2017/10/the-behavior-of-channels.html) 
+* [The behavior of channels](https://www.ardanlabs.com/blog/2017/10/the-behavior-of-channels.html) 
+* [Golang Book](http://www.golang-book.com/books/intro/2)
+* [Go Bootcamp](http://www.golangbootcamp.com/book)
+* [Learning Go](http://www.miek.nl/go)
 * [Network Programming with Golang](https://jan.newmarch.name/go/)
+* [Go for JavaScript Developers](https://github.com/pazams/go-for-javascript-developers)
 
 ## Blueprint
 
-1. Chat app with Websocket
-2. Libp2p
-3. Docker 
+1. blockchain
+2. web app
+3. p2p
+4. docker
