@@ -12,17 +12,15 @@
 
 6.[Goworker](https://github.com/benmanns/goworker)
 
-7.[Useful simple Golang code](https://www.dotnetperls.com/)
+7.[Useful and simple Golang code](https://www.dotnetperls.com/)
 
 ## Read
 
 * [Seven stages of becoming a Golang programmer](https://opensource.com/article/17/9/seven-stages-becoming-go-programmer)
 * [The behavior of channels](https://www.ardanlabs.com/blog/2017/10/the-behavior-of-channels.html) 
-* [Golang Book](http://www.golang-book.com/books/intro/2)
 * [Go Bootcamp](http://www.golangbootcamp.com/book)
-* [Learning Go](http://www.miek.nl/go)
 * [Network Programming with Golang](https://jan.newmarch.name/go/)
-* [Go for JavaScript Developers](https://github.com/pazams/go-for-javascript-developers)
+* [List of Golang Books](https://github.com/dariubs/GoBooks)
 
 ## Blueprint
 

@@ -13,7 +13,7 @@ import (
 
 // https://github.com/moby/moby/issues/40185
 // It shows only active containers
-// Use $docker restart <containername> first it there are none.
+// Use $docker restart <containername> first if there were none.
 func main() {
 	// cli, err := client.NewClientWithOpts(client.FromEnv)
         // Use old methods to make this work.
