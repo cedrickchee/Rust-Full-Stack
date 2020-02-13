@@ -1,3 +1,5 @@
+// Refer to https://github.com/mehmetsefabalik/rust-mongodb-example if you want to use mongodb.
+
 // Let these codes to use PostgresqlPool and inside main.rs to make them reusable in the project.
 use dotenv::dotenv;
 use std::env;

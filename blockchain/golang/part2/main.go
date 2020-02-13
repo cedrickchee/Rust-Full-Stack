@@ -16,6 +16,8 @@
 // Hash: 000000e42afddf57a3daa11b43b2e0923f23e894f96d1f24bfd9b8d2d494c57a
 // PoW: true
 
+// https://keepingstock.net/explaining-blockchain-how-proof-of-work-enables-trustless-consensus-2abed27f0845
+
 package main
 
 import (
