@@ -15,7 +15,7 @@
 
 // Size: 6.6 MB
 
-use std::fs::{write};
+// use std::fs::{write};
 
 use thirtyfour::error::WebDriverResult;
 use thirtyfour::{
@@ -101,7 +101,11 @@ async fn main() -> WebDriverResult<()> {
     }
 
     let file_name = "the_latest_rust_blog_posts_from_steadylearner.md";
-    write(&file_name, &contents)?;
+    // [sync]
+    // write(&file_name, &contents)?;
+    
+    // [async] - should use this in async run time not to block.
+    tokio::fs::write(&file_name, &contents).await?;
     println!("\nCould build {} with Rust thirtyfour crate to use Selenium.", &file_name);
     
     Ok(())
