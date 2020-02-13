@@ -9,6 +9,7 @@ import (
 )
 
 // CLI responsible for processing command line arguments
+// Use this form just to attach methods to it.
 type CLI struct{}
 
 func (cli *CLI) createBlockchain(address string) {

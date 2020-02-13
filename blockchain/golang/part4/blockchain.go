@@ -11,7 +11,7 @@ import (
 
 const dbFile = "blockchain.db"
 const blocksBucket = "blocks"
-const genesisCoinbaseData = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks"
+const genesisCoinbaseData = "genesisCoinbaseData"
 
 // Blockchain implements interactions with a DB
 type Blockchain struct {
@@ -128,6 +128,7 @@ func (bc *Blockchain) FindSpendableOutputs(address string, amount int) (int, map
 	unspentTXs := bc.FindUnspentTransactions(address)
 	accumulated := 0
 
+// Give loop name to continue or break
 Work:
 	for _, tx := range unspentTXs {
 		txID := hex.EncodeToString(tx.ID)
@@ -183,10 +184,11 @@ func dbExists() bool {
 	return true
 }
 
-// NewBlockchain creates a new Blockchain with genesis Block
+// 1. NewBlockchain creates a new Blockchain with genesis Block
 func NewBlockchain(address string) *Blockchain {
 	if dbExists() == false {
-		fmt.Println("No existing blockchain found. Create one first.")
+		fmt.Println("No blockchain butil yet. We will create one first.")
+		// There was some issue which caused the program to exit.
 		os.Exit(1)
 	}
 
@@ -212,10 +214,10 @@ func NewBlockchain(address string) *Blockchain {
 	return &bc
 }
 
-// CreateBlockchain creates a new blockchain DB
+// 2. CreateBlockchain creates a new blockchain DB
 func CreateBlockchain(address string) *Blockchain {
 	if dbExists() {
-		fmt.Println("Blockchain already exists.")
+		fmt.Println("Blockchain was already made.")
 		os.Exit(1)
 	}
 
