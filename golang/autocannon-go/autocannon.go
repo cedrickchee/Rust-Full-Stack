@@ -1,3 +1,6 @@
+// Modulize this project first before you make Rust version of it?
+// http://www.pazams.com/Go-for-Javascript-Developers/pages/keywords-syntax-comparison/
+
 package main
 
 import (
