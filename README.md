@@ -249,6 +249,7 @@ This is where I save the projects that I thought interesting.
 * [envconfig-rs](https://github.com/greyblake/envconfig-rs)
 * [Redelete](https://github.com/ardeaf/redelete)
 * [Blog with Rust Yew Frontend](https://github.com/ahmad2smile/portfolio)
+* [fstring-rs](https://github.com/danielhenrymantilla/fstrings-rs)
 
 ## Contact
 
