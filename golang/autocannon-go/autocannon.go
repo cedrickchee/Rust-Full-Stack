@@ -17,7 +17,7 @@ import (
 	// Contexts are safe for simultaneous use by multiple goroutines.
 	"github.com/jbenet/goprocess"
 
-	// static
+	// statistics
 	// https://github.com/steadylearner/HdrHistogram_rust
 	"github.com/glentiki/hdrhistogram"
 
@@ -214,6 +214,7 @@ func main() {
 	}
 }
 
+// Extract this function
 func formatBigNum(i float64) string {
 	if i < 1000 {
 		return fmt.Sprintf("%.0f", i)
@@ -221,6 +222,7 @@ func formatBigNum(i float64) string {
 	return fmt.Sprintf("%.0fk", math.Round(i/1000))
 }
 
+// Payload, should be kept here.
 func runClients(ctx goprocess.Process, clients int, pipeliningFactor int, timeout time.Duration, uri string) (<-chan *resp, <-chan error) {
 	respChan := make(chan *resp, 2*clients*pipeliningFactor)
 	errChan := make(chan error, 2*clients*pipeliningFactor)
@@ -236,6 +238,7 @@ func runClients(ctx goprocess.Process, clients int, pipeliningFactor int, timeou
 		for j := 0; j < pipeliningFactor; j++ {
 			go func() {
 				req := fasthttp.AcquireRequest()
+				// Can be different?
 				req.SetBody([]byte("hello, world!"))
 				req.SetRequestURI(uri)
 

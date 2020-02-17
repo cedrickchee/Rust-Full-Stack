@@ -15,6 +15,7 @@
 * [Useful and simple Golang code](https://www.dotnetperls.com/)
 * [Network Programming with Golang](https://jan.newmarch.name/go/)
 * [Golang Examples](https://github.com/SimonWaldherr/golang-examples)
+* [Goland Code Review](https://github.com/golang/go/wiki/CodeReviewComments)
 
 ## Blueprint
 
